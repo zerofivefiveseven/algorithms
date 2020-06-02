@@ -1,22 +1,42 @@
-# Linked List
+#Linked List
 
- + [Intersection of Two Linked Lists](#intersection-of-two-linked-lists)
+ + [Sort List](#sort-list)
  
- ## Intersection of Two Linked Lists
+ ## Sort List
 
-https://leetcode.com/problems/intersection-of-two-linked-lists/
+ https://leetcode.com/problems/sort-list/
 
  ```python
-def getIntersectionNode(self, headA, headB):
-        temp1 = headA
-        temp2 = headB
-        d = {}
-        while temp1:
-            d[temp1] = temp1
-            temp1 = temp1.next
-        while temp2:
-            if temp2 in d:
-                return temp2
-            temp2 = temp2.next
-        return None
+def sortList(self, head):
+        if not head or not head.next:
+            return head
+        fast, slow = head.next, head
+        while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+        second = slow.next
+        slow.next = None
+        left = self.sortList(head)
+        right = self.sortList(second)
+        return self.merge(left, right)
+      
+    def merge(self, left, right):
+        if not left or not right:
+            return left or right
+        if left.val > right.val:
+            left, right = right, left
+        head = pre = left
+        left = left.next
+        while left and right:
+            if left.val < right.val:
+                left = left.next
+            else:
+                nxt = pre.next
+                pre.next = right
+                tmp = right.next
+                right.next = nxt
+                right = tmp
+            pre = pre.next
+        pre.next = left or right
+        return head
  ```
