@@ -1,6 +1,6 @@
  # Intervals
  
- [Insert Interval](#insert-interval)
++ [Insert Interval](#insert-interval)
  
  ## Insert Interval
 
