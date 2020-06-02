@@ -1,23 +1,14 @@
 # Tree
 
- + [Symmetric Tree](#symmetric-tree)
+ + [Maximum Depth of Binary Tree](#maximum-depth-of-binary-tree)
  
- ## Symmetric Tree
+ ## Maximum Depth of Binary Tree
 
- https://leetcode.com/problems/symmetric-tree/
+ https://leetcode.com/problems/maximum-depth-of-binary-tree/
 
  ```python
-def isEqual(self, l, r):
-	if not l and not r:
-		return True
-	if not l or not r:
-		return False
-	return l.val == r.val and self.isEqual(l.left, r.right) and self.isEqual(l.right, r.left)
-
-def isSymmetric(self, root: TreeNode):
-	if not root:
-		return True
-	if self.isEqual(root.left, root.right):
-		return True
-
+def maxDepth(self, root):
+            if not root:
+                return 0
+            return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
  ```
