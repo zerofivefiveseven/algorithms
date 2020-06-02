@@ -1,26 +1,26 @@
 # Tree
 
- + [Kth Smallest Element in a BST](#kth-smallest-element-in-a-bst)
- 
- ## Kth Smallest Element in a BST
+ + [Validate Binary Search Tree](#validate-binary-search-tree)
 
- https://leetcode.com/problems/kth-smallest-element-in-a-bst/
+## Validate Binary Search Tree
+
+ https://leetcode.com/problems/validate-binary-search-tree/
 
  ```python
-def kthSmallest(self, node, k):
-	self.k = k
-	self.res = None
-	self.helper(node)
-	return self.res
-
-def helper(self, node):
-	if not node:
-		return
-	self.helper(node.left)
-	self.k -= 1
-	if self.k == 0:
-		self.res = node.val
-		return
-	self.helper(node.right)
+def isValidBST(self, root):
+	if not root:
+		return True
+	def inorder(root):
+		if root.left:
+			inorder(root.left)
+		ans.append(root.val)
+		if root.right:
+			inorder(root.right)
+	ans = []
+	inorder(root)
+	if sorted(ans) == ans and len(set(ans)) == len(ans) :
+		return True
+	return False
  ```
+
  
