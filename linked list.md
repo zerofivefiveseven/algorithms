@@ -1,27 +1,22 @@
 # Linked List
 
- + [Reorder List](#reorder-list)
+ + [Intersection of Two Linked Lists](#intersection-of-two-linked-lists)
  
-## Reorder List
+ ## Intersection of Two Linked Lists
 
-https://leetcode.com/problems/reorder-list
+https://leetcode.com/problems/intersection-of-two-linked-lists/
 
  ```python
-def reorderList(self, head):
-        if not head or not head.next:
-            return
-        
-        slow, fast = head, head
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
-        
-        prev, slow.next, slow = None, None, slow.next
-        while slow:
-            prev, prev.next, slow = slow, prev, slow.next
-
-        slow = head
-        while prev:
-            slow.next, slow = prev, slow.next
-            prev.next, prev = slow, prev.next
+def getIntersectionNode(self, headA, headB):
+        temp1 = headA
+        temp2 = headB
+        d = {}
+        while temp1:
+            d[temp1] = temp1
+            temp1 = temp1.next
+        while temp2:
+            if temp2 in d:
+                return temp2
+            temp2 = temp2.next
+        return None
  ```
