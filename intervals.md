@@ -1,16 +1,12 @@
  # Intervals
  
- + [Insert Interval](#insert-interval)
+ [Merge Intervals](#merge-intervals)
 
- ## Insert Interval
+## Merge Intervals
 
- https://leetcode.com/problems/insert-interval/
+ https://leetcode.com/problems/merge-intervals/ 
 
  ```python
- def insert(self, intervals, newInterval):
-     intervals.append(newInterval)
-     return self.merge(intervals)
-
  def merge(self, intervals: List[List[int]]) -> List[List[int]]:
      if not intervals:
          return []
