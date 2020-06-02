@@ -7,20 +7,32 @@
  https://leetcode.com/problems/validate-binary-search-tree/
 
  ```python
-def isValidBST(self, root):
-	if not root:
-		return True
-	def inorder(root):
-		if root.left:
-			inorder(root.left)
-		ans.append(root.val)
-		if root.right:
-			inorder(root.right)
-	ans = []
-	inorder(root)
-	if sorted(ans) == ans and len(set(ans)) == len(ans) :
-		return True
-	return False
+    def __init__(self, root):
+        self.treeList=[] 
+        if root is not None :
+            cur=root
+            self.treeList.append(cur)
+        
+            while cur.left is not None :
+                self.treeList.append(cur.left)
+                cur=cur.left
+
+    def hasNext(self):
+        if not self.treeList:
+            return False
+        else:
+            return True
+        
+    def next(self):
+        element=self.treeList.pop()
+        if element.right is not None :
+            self.treeList.append(element.right)
+            tp = element.right
+            while tp.left is not None :
+                self.treeList.append(tp.left)
+                tp = tp.left
+
+        return element.val
  ```
 
  
