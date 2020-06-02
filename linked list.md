@@ -1,22 +1,24 @@
 # Linked List
 
- + [Remove Nth Node From End of List](#remove-nth-node-from-end-of-list)
+ + [Linked List Cycle II](#linked-list-cycle-ii)
  
- ## Remove Nth Node From End of List
+ ## Linked List Cycle II
 
-https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+https://leetcode.com/problems/linked-list-cycle-ii/
 
  ```python
-def removeNthFromEnd(self, head, n):
-        slow = fast = self
-        self.next = head
-        while fast.next:
-            if n:
-                n -= 1
-            else:
+def detectCycle(self, head):
+    slow = head
+    fast = head
+    node = head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+        if slow == fast:
+            while node != slow:
                 slow = slow.next
-            fast = fast.next
-        slow.next = slow.next.next
-        return self.next 
+                node = node.next
+            return node
+    return None
     
  ```
