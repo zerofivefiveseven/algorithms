@@ -1,14 +1,17 @@
 # Tree
 
- + [Maximum Depth of Binary Tree](#maximum-depth-of-binary-tree)
+ + [Same Tree](#same-tree)
  
- ## Maximum Depth of Binary Tree
+ ## Same Tree
 
- https://leetcode.com/problems/maximum-depth-of-binary-tree/
+ https://leetcode.com/problems/same-tree/
 
  ```python
-def maxDepth(self, root):
-            if not root:
-                return 0
-            return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
+def isSameTree(self, first, second):
+        if first and second:
+            return (first.val == second.val) and self.isSameTree(first.left, second.left) and self.isSameTree(first.right, second.right )
+        elif not first and not second:
+            return True
+        else:
+            return False     
  ```
