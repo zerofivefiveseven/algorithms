@@ -1,31 +1,26 @@
 # Tree
 
- + [Subtree of Another Tree](#subtree-of-another-tree)
+ + [Kth Smallest Element in a BST](#kth-smallest-element-in-a-bst)
  
- ## Subtree of Another Tree
+ ## Kth Smallest Element in a BST
 
- https://leetcode.com/problems/subtree-of-another-tree/
+ https://leetcode.com/problems/kth-smallest-element-in-a-bst/
 
  ```python
-def isSubtree(self, tree, subt):
-	if not tree and not subt:
-		return True
-	if not tree or not subt:
-		return False
-	
-	if tree.val == subt.val and self.isSame(tree,subt):
-		return True
-	else:
-		return self.isSubtree(tree.left, subt) or self.isSubtree(tree.right, subt)
+def kthSmallest(self, node, k):
+	self.k = k
+	self.res = None
+	self.helper(node)
+	return self.res
 
-def isSame(self, tree, subt):
-	if not tree and not subt:
-		return True
-	elif not tree or not subt:
-		return False
-	elif tree.val != subt.val:
-		return False
-	else:
-		return self.isSame(tree.left, subt.left) and self.isSame(tree.right, subt.right)
-	
+def helper(self, node):
+	if not node:
+		return
+	self.helper(node.left)
+	self.k -= 1
+	if self.k == 0:
+		self.res = node.val
+		return
+	self.helper(node.right)
  ```
+ 
