@@ -1,16 +1,22 @@
 # Linked List
 
- + [Middle of The Linked List](#middle-of-the-linked-list)
+ + [Palindrome Linked List](#palindrome-linked-list)
  
- ## Middle of The Linked List
+ ## Palindrome Linked List
 
-https://leetcode.com/problems/middle-of-the-linked-list/
+https://leetcode.com/problems/palindrome-linked-list/
 
  ```python
-def middleNode(self, head):
+def isPalindrome(self, head):
+    rev = None
     slow = fast = head
     while fast and fast.next:
-        slow = slow.next
         fast = fast.next.next
-    return slow    
+        rev, rev.next, slow = slow, rev, slow.next
+    if fast:
+        slow = slow.next
+    while rev and rev.val == slow.val:
+        slow = slow.next
+        rev = rev.next
+    return not rev
  ```
