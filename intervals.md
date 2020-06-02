@@ -22,5 +22,6 @@
          else:
              merged[-1][1] = max(edge[1], interval[1])
      return merged
+
  ```
     
